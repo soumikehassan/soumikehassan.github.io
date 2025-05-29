@@ -207,7 +207,19 @@ nav {
     overflow: hidden;
     border: 1px solid rgba(0, 123, 255, 0.2); /* Subtle border */
 }
+/*********************
+/* Contact Section Specific Styles */
+#contact .social-links {
+    text-align: center; /* Centers inline-block children like .social-btn */
+    margin-top: 30px; /* Add some space below the heading */
+}
 
+/* Optional: Adjust spacing if needed for the Contact section */
+#contact .social-links .social-btn {
+    margin: 0 15px; /* Increase horizontal margin between buttons slightly */
+}
+
+/******************************************
 /* Section specific styling */
 .academic-timeline, .publications-list, .conference-list, .projects-grid, .skills-container {
     display: grid;
@@ -332,7 +344,7 @@ nav {
     gap: 10px;
     justify-content: flex-end; /* Align buttons to the right */
 }
-.project-btn {
+.project-btn {c
     background-color: #007bff;
     color: #fff;
     padding: 8px 15px;
