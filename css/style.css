@@ -344,7 +344,7 @@ nav {
     gap: 10px;
     justify-content: flex-end; /* Align buttons to the right */
 }
-.project-btn {c
+.project-btn {
     background-color: #007bff;
     color: #fff;
     padding: 8px 15px;
