@@ -221,7 +221,7 @@ main {
     transform: scale(1.05);
 }
 
-/* Social Links */
+/* Social Links - Used for Resume button and Contact buttons */
 .social-links {
     display: flex;
     gap: 1rem;
@@ -232,11 +232,11 @@ main {
 .social-btn {
     display: inline-block;
     padding: 12px 30px;
-    background: rgba(255, 255, 255, 0.2);
+    background: #667eea; /* Changed to solid primary color */
     color: white;
     text-decoration: none;
     border-radius: 50px;
-    border: 2px solid white;
+    border: 2px solid transparent; /* Changed to transparent for a cleaner look with solid background */
     transition: all 0.3s ease;
     font-weight: 500;
     text-transform: uppercase;
@@ -246,6 +246,7 @@ main {
 .social-btn:hover {
     background: white;
     color: #667eea;
+    border: 2px solid #667eea; /* Added border on hover for consistency */
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
