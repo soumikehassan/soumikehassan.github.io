@@ -15,6 +15,7 @@ body {
     color: #333;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
+    overflow-x: hidden; /* Added to hide horizontal scrollbar and extra background */
 }
 
 /* Header & Navigation */
