@@ -156,7 +156,7 @@ nav {
 
 /* Main Content */
 main {
-    margin-top: 80px;
+    margin-top: 80px; /* This correctly pushes content below the fixed header */
 }
 
 .content-section {
@@ -175,7 +175,7 @@ main {
 
 /* Hero Section */
 .hero-section {
-    min-height: 90vh;
+    min-height: 90vh; /* Keep this, ensures it's at least 90% of viewport height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,6 +183,8 @@ main {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 2rem 5%;
+    /* Add generous bottom padding to ensure separation from the next section */
+    padding-bottom: 6rem; /* Increased padding-bottom for better separation */
 }
 
 .hero-content h1 {
@@ -264,7 +266,7 @@ h2::after {
     width: 80px;
     height: 4px;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    bottom: -10px;
+    bottom: -15px; /* Adjusted to give more space below heading underline */
     left: 50%;
     transform: translateX(-50%);
     border-radius: 2px;
@@ -510,6 +512,13 @@ footer p {
     margin-bottom: 0.5rem;
 }
 
+/* Specific adjustment for the first content section (Academic History) */
+/* This will push the content of the academic section down further from the hero section */
+#academic {
+    padding-top: 6rem; /* Increased top padding for the academic section */
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     /* Navigation */
@@ -548,6 +557,10 @@ footer p {
     .profile-image {
         width: 150px;
         height: 150px;
+    }
+
+    .hero-section {
+        padding-bottom: 4rem; /* Adjusted padding for smaller screens */
     }
     
     /* Content Sections */
@@ -613,6 +626,10 @@ footer p {
         font-size: 0.9rem;
         min-width: 120px;
     }
+
+    #academic {
+        padding-top: 4rem; /* Adjusted top padding for academic section on smaller screens */
+    }
 }
 
 @media (max-width: 480px) {
@@ -644,5 +661,12 @@ footer p {
     .project-card,
     .skills-category {
         padding: 1rem;
+    }
+
+    .hero-section {
+        padding-bottom: 3rem; /* Further adjustment for very small screens */
+    }
+    #academic {
+        padding-top: 3rem; /* Further adjustment for academic section on very small screens */
     }
 }
