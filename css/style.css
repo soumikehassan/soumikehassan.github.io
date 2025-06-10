@@ -7,8 +7,6 @@
 
 html {
     scroll-behavior: smooth;
-    width: 100%; /* Ensure html takes full width */
-    height: 100%; /* Ensure html takes full height, useful for full-page layouts */
 }
 
 body {
@@ -17,8 +15,7 @@ body {
     color: #333;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
-    width: 100%; /* Ensure body takes full width */
-    overflow-x: hidden; /* Keep this to hide horizontal scrollbar */
+    overflow-x: hidden;
 }
 
 /* Header & Navigation */
@@ -92,7 +89,7 @@ nav {
 
 /* Hamburger Menu */
 .hamburger {
-    display: none; /* Hidden by default, shown in media queries */
+    display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
@@ -123,19 +120,19 @@ nav {
 .mobile-nav {
     display: none;
     position: fixed;
-    top: 80px; /* Below header */
+    top: 80px;
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     padding: 2rem 0;
-    transform: translateY(-100%); /* Off-screen */
+    transform: translateY(-100%);
     transition: transform 0.3s ease;
-    z-index: 999; /* Added z-index to ensure it appears on top */
+    z-index: 999;
 }
 
 .mobile-nav.active {
-    transform: translateY(0); /* On-screen */
+    transform: translateY(0);
 }
 
 .mobile-nav ul {
@@ -161,7 +158,7 @@ nav {
 
 /* Main Content */
 main {
-    margin-top: 80px; /* This correctly pushes content below the fixed header */
+    margin-top: 80px;
 }
 
 .content-section {
@@ -180,7 +177,7 @@ main {
 
 /* Hero Section */
 .hero-section {
-    min-height: 90vh; /* Keep this, ensures it's at least 90% of viewport height */
+    min-height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -188,12 +185,7 @@ main {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 2rem 5%;
-    padding-bottom: 6rem; /* Increased padding-bottom for better separation */
-    /* Fix for full-width background */
-    width: 100vw; /* Make it 100% of viewport width */
-    position: relative; /* Needed for transform centering */
-    left: 50%; /* Move it to the middle of the viewport */
-    transform: translateX(-50%); /* Pull it back by half its width to perfectly center */
+    padding-bottom: 6rem;
 }
 
 .hero-content h1 {
@@ -229,7 +221,7 @@ main {
     transform: scale(1.05);
 }
 
-/* Social Links - Used for Resume button and Contact buttons */
+/* Social Links */
 .social-links {
     display: flex;
     gap: 1rem;
@@ -240,11 +232,11 @@ main {
 .social-btn {
     display: inline-block;
     padding: 12px 30px;
-    background: #667eea; /* Changed to solid primary color */
+    background: #667eea;
     color: white;
     text-decoration: none;
     border-radius: 50px;
-    border: 2px solid transparent; /* Changed to transparent for a cleaner look with solid background */
+    border: 2px solid transparent;
     transition: all 0.3s ease;
     font-weight: 500;
     text-transform: uppercase;
@@ -254,7 +246,7 @@ main {
 .social-btn:hover {
     background: white;
     color: #667eea;
-    border: 2px solid #667eea; /* Added border on hover for consistency */
+    border: 2px solid #667eea;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
@@ -276,7 +268,7 @@ h2::after {
     width: 80px;
     height: 4px;
     background: linear-gradient(135deg, #667eea, #764ba2);
-    bottom: -15px; /* Adjusted to give more space below heading underline */
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 2px;
@@ -522,16 +514,13 @@ footer p {
     margin-bottom: 0.5rem;
 }
 
-/* Specific adjustment for the first content section (Academic History) */
-/* This will push the content of the academic section down further from the hero section */
+/* Academic Section Adjustment */
 #academic {
-    padding-top: 6rem; /* Increased top padding for the academic section */
+    padding-top: 6rem;
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Navigation */
     .nav-links {
         display: none;
     }
@@ -555,7 +544,6 @@ footer p {
         text-align: left;
     }
     
-    /* Hero Section */
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -570,14 +558,9 @@ footer p {
     }
 
     .hero-section {
-        padding-bottom: 4rem; /* Adjusted padding for smaller screens */
-        /* Reapply full width for smaller screens as well, with centering */
-        width: 100vw;
-        left: 50%;
-        transform: translateX(-50%);
+        padding-bottom: 4rem;
     }
     
-    /* Content Sections */
     .content-section {
         padding: 2rem 5%;
     }
@@ -590,17 +573,14 @@ footer p {
         font-size: 1.3rem;
     }
     
-    /* Projects Grid */
     .projects-grid {
         grid-template-columns: 1fr;
     }
     
-    /* Skills Grid */
     .skills-container {
         grid-template-columns: 1fr;
     }
     
-    /* Academic Items */
     .academic-item {
         padding: 1.5rem;
     }
@@ -609,13 +589,11 @@ footer p {
         transform: none;
     }
     
-    /* Publication Items */
     .publication-item,
     .conference-item {
         padding: 1.5rem;
     }
     
-    /* Project Cards */
     .project-card {
         padding: 1.5rem;
     }
@@ -628,7 +606,6 @@ footer p {
         text-align: center;
     }
     
-    /* Social Links */
     .social-links {
         flex-direction: column;
         align-items: center;
@@ -642,7 +619,7 @@ footer p {
     }
 
     #academic {
-        padding-top: 4rem; /* Adjusted top padding for academic section on smaller screens */
+        padding-top: 4rem;
     }
 }
 
@@ -678,13 +655,10 @@ footer p {
     }
 
     .hero-section {
-        padding-bottom: 3rem; /* Further adjustment for very small screens */
-        /* Ensure full width on very small screens as well */
-        width: 100vw;
-        left: 50%;
-        transform: translateX(-50%);
+        padding-bottom: 3rem;
     }
+    
     #academic {
-        padding-top: 3rem; /* Further adjustment for academic section on very small screens */
+        padding-top: 3rem;
     }
 }
