@@ -7,6 +7,8 @@
 
 html {
     scroll-behavior: smooth;
+    width: 100%; /* Ensure html takes full width */
+    height: 100%; /* Ensure html takes full height, useful for full-page layouts */
 }
 
 body {
@@ -15,7 +17,8 @@ body {
     color: #333;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
-    overflow-x: hidden; /* Added to hide horizontal scrollbar and extra background */
+    width: 100%; /* Ensure body takes full width */
+    overflow-x: hidden; /* Keep this to hide horizontal scrollbar */
 }
 
 /* Header & Navigation */
@@ -184,8 +187,12 @@ main {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 2rem 5%;
-    /* Add generous bottom padding to ensure separation from the next section */
     padding-bottom: 6rem; /* Increased padding-bottom for better separation */
+    /* Fix for full-width background */
+    width: 100vw; /* Make it 100% of viewport width */
+    position: relative; /* Needed for transform centering */
+    left: 50%; /* Move it to the middle of the viewport */
+    transform: translateX(-50%); /* Pull it back by half its width to perfectly center */
 }
 
 .hero-content h1 {
@@ -563,6 +570,10 @@ footer p {
 
     .hero-section {
         padding-bottom: 4rem; /* Adjusted padding for smaller screens */
+        /* Reapply full width for smaller screens as well, with centering */
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     /* Content Sections */
@@ -667,6 +678,10 @@ footer p {
 
     .hero-section {
         padding-bottom: 3rem; /* Further adjustment for very small screens */
+        /* Ensure full width on very small screens as well */
+        width: 100vw;
+        left: 50%;
+        transform: translateX(-50%);
     }
     #academic {
         padding-top: 3rem; /* Further adjustment for academic section on very small screens */
