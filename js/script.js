@@ -9,7 +9,7 @@ function initializeAOS() {
             offset: 100
         });
     } else {
-        console.warn('AOS library not found');
+        console.warn('AOS library not found, animations might not work as expected.');
     }
 }
 
@@ -24,7 +24,7 @@ class MobileNavigation {
     init() {
         // Check if elements exist before attaching listeners
         if (!this.hamburger || !this.mobileNav) {
-            console.warn('Mobile navigation elements not found, skipping initialization.');
+            console.warn('Mobile navigation elements (hamburger or mobileNav) not found, skipping initialization.');
             return;
         }
 
@@ -156,12 +156,53 @@ function lazyLoadImages() {
     }
 }
 
+// Function for character-by-character typing effect for the main heading
+function setupTypingEffect() {
+    const typingElement = document.getElementById('typing-text');
+    if (!typingElement) {
+        console.warn('Typing element with ID "typing-text" not found, skipping typing effect.');
+        return;
+    }
+
+    const textToType = typingElement.getAttribute('data-original-text');
+    if (!textToType) {
+        console.warn('No text to type found in "data-original-text" attribute for typing element.');
+        return;
+    }
+
+    // Remove existing AOS attributes and class to prevent conflict with custom animation
+    // (This ensures the typing effect doesn't clash with previous AOS settings or unwanted styles)
+    typingElement.removeAttribute('data-aos');
+    typingElement.removeAttribute('data-aos-duration');
+    typingElement.removeAttribute('data-aos-delay');
+    typingElement.removeAttribute('class'); // Remove class as it's no longer needed for animation
+
+    // Clear content before typing
+    typingElement.textContent = '';
+    
+    let charIndex = 0;
+
+    function typeNextChar() {
+        if (charIndex < textToType.length) {
+            typingElement.textContent += textToType.charAt(charIndex); // Add one character at a time
+            charIndex++;
+            // Adjust this delay (in milliseconds) to control the speed between characters
+            setTimeout(typeNextChar, 70); // Current delay is 70 milliseconds per character
+        }
+    }
+    
+    // Start typing after a short initial delay when the page loads
+    setTimeout(typeNextChar, 500); // Initial delay of 0.5 seconds before typing starts
+}
+
+
 // Initialize all components when the DOM is fully loaded
+// This is the single, combined DOMContentLoaded listener
 document.addEventListener('DOMContentLoaded', () => {
-    initializeAOS(); // Initialize AOS library
+    initializeAOS(); // Initialize AOS library for other elements
     window.mobileNav = new MobileNavigation(); // Initialize mobile navigation
     createScrollToTopButton(); // Create and initialize scroll-to-top button
     lazyLoadImages(); // Initialize lazy loading for images
-
+    setupTypingEffect(); // Initialize the custom typing effect for the heading
     console.log('Portfolio website loaded successfully! 🚀');
 });
