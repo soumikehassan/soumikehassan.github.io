@@ -133,6 +133,7 @@ nav {
 
 .mobile-nav.active {
     transform: translateY(0);
+    display: block;
 }
 
 .mobile-nav ul {
