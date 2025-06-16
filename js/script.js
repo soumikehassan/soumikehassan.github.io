@@ -448,3 +448,85 @@ window.portfolioUtils = {
     toggleTheme,
     typeWriter
 };
+
+
+// ##################################//
+
+// Portfolio Website JavaScript - Fixed Version
+
+// Initialize AOS (Animate On Scroll) - with error handling
+function initializeAOS() {
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    } else {
+        console.warn('AOS library not found');
+    }
+}
+
+// Mobile Navigation Handler
+class MobileNavigation {
+    constructor() {
+        this.hamburger = document.getElementById('hamburger');
+        this.mobileNav = document.getElementById('mobileNav');
+        this.init();
+    }
+
+    init() {
+        if (!this.hamburger || !this.mobileNav) {
+            console.warn('Mobile navigation elements not found');
+            return;
+        }
+
+        this.hamburger.addEventListener('click', () => this.toggleNav());
+        document.addEventListener('click', (e) => this.handleOutsideClick(e));
+        window.addEventListener('resize', () => this.handleResize());
+    }
+
+    toggleNav() {
+        this.hamburger.classList.toggle('active');
+        this.mobileNav.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = this.mobileNav.classList.contains('active') ? 'hidden' : 'auto';
+    }
+
+    closeNav() {
+        this.hamburger.classList.remove('active');
+        this.mobileNav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+
+    handleOutsideClick(event) {
+        const isClickInsideNav = this.mobileNav.contains(event.target);
+        const isClickOnHamburger = this.hamburger.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickOnHamburger && this.mobileNav.classList.contains('active')) {
+            this.closeNav();
+        }
+    }
+
+    handleResize() {
+        if (window.innerWidth > 768 && this.mobileNav.classList.contains('active')) {
+            this.closeNav();
+        }
+    }
+}
+
+// Initialize Portfolio
+function initializePortfolio() {
+    // Initialize all components
+    initializeAOS();
+    window.mobileNav = new MobileNavigation();
+    console.log('Portfolio website loaded successfully! 🚀');
+}
+
+// Initialize when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializePortfolio);
+} else {
+    initializePortfolio();
+}
